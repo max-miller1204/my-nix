@@ -142,4 +142,12 @@
 
   # Karabiner
   home.file.".config/karabiner/karabiner.json".source = ./dotfiles/karabiner.json;
+
+  # Claude Code
+  home.file.".claude/settings.json".source = ./dotfiles/claude/settings.json;
+  home.file.".claude/settings.local.json".source = ./dotfiles/claude/settings.local.json;
+  home.file.".claude/statusline.sh" = {
+    source = ./dotfiles/claude/statusline.sh;
+    executable = true;
+  };
 }
