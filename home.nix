@@ -13,15 +13,17 @@
     shellAliases = {
       c = "claude";
     };
-    initContent = ''
-      eval "$(direnv hook zsh)"
-    '';
+  };
+
+  # Direnv
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 
   # Git
   programs.git = {
     enable = true;
-    signing.format = null;
     settings.user.name = "max-miller1204";
     settings.user.email = "maxmiller1204@outlook.com"; # fill this in
   };

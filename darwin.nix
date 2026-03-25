@@ -1,7 +1,6 @@
 { pkgs, self, ... }: {
   environment.systemPackages = with pkgs; [
     vim
-    git
     ripgrep
     fd
     curl
@@ -9,20 +8,22 @@
   ];
 
   nix.settings.experimental-features = "nix-command flakes";
-
-  # Shell
-  programs.zsh.enable = true;
-  programs.zsh.enableAutosuggestions = true;
-  programs.zsh.enableBashCompletion = true;
+  nix.gc = {
+    automatic = true;
+    interval = { Weekday = 0; Hour = 3; Minute = 0; };
+    options = "--delete-older-than 7d";
+  };
 
   # Homebrew (declarative management)
   homebrew.enable = true;
   homebrew.enableZshIntegration = true;
+  homebrew.onActivation = {
+    autoUpdate = true;
+    cleanup = "zap";
+  };
   homebrew.brews = [
     "cosign"
-    "direnv"
     "fastfetch"
-    "gh"
     "llama.cpp"
     "mise"
     "podman"
