@@ -23,6 +23,7 @@
   };
   homebrew.brews = [
     "cosign"
+    "direnv"
     "fastfetch"
     "llama.cpp"
     "mise"
